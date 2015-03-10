@@ -1,0 +1,84 @@
+body {
+    overflow-x:scroll;
+    overflow-y:hidden;
+}
+
+.icon {
+    background-image: url('../img/master_sprite.png');
+    background-repeat: no-repeat;
+    width:40px;
+    height:40px;
+    position:absolute;
+    top:0;
+    left:0;
+}
+
+#scrm-container {
+    overflow:hidden;
+}
+
+#stacks .stack {
+    width:340px;
+    float:left;
+}
+
+#stacks .stack .header {
+    position: relative;
+    height:60px;
+    background-color:rgb(48, 48, 48);
+}
+
+#stacks .stack .header .icon {
+    top:10px;
+    left:10px;
+    background-position: -440px -40px;
+}
+
+#stacks .stack .header .title {
+    color:#ffffff;
+    font-family:ProximanovaLight;
+    padding:24px 0 10px 60px;
+    font-size:16px;
+}
+
+#stacks .stack .items {
+    overflow-y:scroll;
+    overflow-x:hidden;
+}
+
+#stacks .stack .items .item {
+    position: relative;
+    min-height:60px;
+    color:#6D6F70;
+    font-family:ProximanovaRegular;
+    border-bottom: 1px solid #edeeef;
+    padding: 16px 0 16px 0;
+}
+
+#stacks .stack .items .item .avatar {
+    position:absolute;
+    top:15px;
+    left:15px;
+    width:30px;
+    height:30px;
+    background-color:#777777;
+}
+
+#stacks .stack .items .item .username {
+    font-size: 16px;
+    height:20px;
+    color:rgb(46,46,46);
+    padding: 4px 21px 0px 55px;
+}
+
+#stacks .stack .items .item .timestamp {
+    position:absolute;
+    top:10px;
+    right:10px;
+    font-size:10px;
+}
+
+#stacks .stack .items .item .message {
+    font-size:12px;
+    padding: 4px 21px 0px 55px;
+}
