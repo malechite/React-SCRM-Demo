@@ -54,6 +54,27 @@ var SCRM = {
             };
         },
 
+        handleClick: function() {
+            var demoItem = {
+                username: 'User Name',
+                timestamp: '8d',
+                message: 'Kogi lo-fi selvage 90\'s flexitarian. Lo-fi lumbersexual mixtape pop-up. Food truck kitsch semiotics Intelligentsia.',
+                attachment: false
+            }
+            this.addItem(demoItem)
+        },
+
+        addItem: function(item) {
+            var items = this.state.items.slice();
+            if(item) {
+                items.push(item);
+
+                this.setState({
+                    items:items
+                });
+            }
+        },
+
         render: function() {
             var className = 'stack ' + this.state.stack.network;
             var stackType = this.state.stack.type || '';
@@ -69,6 +90,7 @@ var SCRM = {
                         <div className='title'>{stackType}</div>
                     </div>
                     <div className='items'>
+                        <a onClick={this.handleClick} className='add-item'>Add Item</a>
                         {items}
                     </div>
                 </div>
@@ -77,16 +99,20 @@ var SCRM = {
     }),
 
     Item: React.createClass({
+        getInitialState: function () {
+            return {
+                  item: this.props.item
+            };
+        },
+
         render: function() {
             return (
                 <div className='item'>
                     <div className='avatar' />
-                    <div className='username'>User Name</div>
-                    <div className='timestamp'>8d</div>
-                    <p className='message'>
-                        Gastropub Williamsburg leggings narwhal, normcore vinyl wolf Brooklyn semiotics cronut Helvetica. 8-bit letterpress brunch PBR asymmetrical, High Life narwhal irony small batch chambray vegan.
-                    </p>
-                    <div className='attachment' />
+                    <div className='username'>{this.state.item.username}</div>
+                    <div className='timestamp'>{this.state.item.timestamp}</div>
+                    <p className='message'>{this.state.item.message}</p>
+                    {this.state.item.attachment ? <div className='attachment'>{this.state.item.attachment}</div> : false}
                 </div>
             );
         }

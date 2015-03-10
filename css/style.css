@@ -92,3 +92,13 @@ body {
     font-size:12px;
     padding: 4px 21px 0px 55px;
 }
+
+a.add-item {
+    display:block;
+    text-align: center;
+    cursor:pointer;
+    font-family:ProximanovaRegular;
+    font-size:15px;
+    padding:15px;
+    color:#0000ff;
+}
