@@ -32,25 +32,7 @@ var SCRM = {
 
         render: function() {
             var stacks = this.state.stacks.map(function (stack, index) {
-                return (
-                    <div className='stack'>
-                        <div className='header'>
-                            <div className='icon' />
-                            <div className='title'>Default</div>
-                        </div>
-                        <div className='items'>
-                            <div className='item'>
-                                <div className='avatar' />
-                                <div className='username'>User Name</div>
-                                <div className='timestamp'>8d</div>
-                                <p className='message'>
-                                    Gastropub Williamsburg leggings narwhal, normcore vinyl wolf Brooklyn semiotics cronut Helvetica. 8-bit letterpress brunch PBR asymmetrical, High Life narwhal irony small batch chambray vegan.
-                                </p>
-                                <div className='attachment' />
-                            </div>
-                        </div>
-                    </div>
-                );
+                return <SCRM.Stack stack={stack} />
             }.bind(this));
 
             return (
@@ -60,6 +42,30 @@ var SCRM = {
             );
         }
     }),
+
+    Stack: React.createClass({
+        render: function() {
+            return (
+                <div className='stack'>
+                    <div className='header'>
+                        <div className='icon' />
+                        <div className='title'>Default</div>
+                    </div>
+                    <div className='items'>
+                        <div className='item'>
+                            <div className='avatar' />
+                            <div className='username'>User Name</div>
+                            <div className='timestamp'>8d</div>
+                            <p className='message'>
+                                Gastropub Williamsburg leggings narwhal, normcore vinyl wolf Brooklyn semiotics cronut Helvetica. 8-bit letterpress brunch PBR asymmetrical, High Life narwhal irony small batch chambray vegan.
+                            </p>
+                            <div className='attachment' />
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+    })
 };
 
 $(document).ready(function() {
