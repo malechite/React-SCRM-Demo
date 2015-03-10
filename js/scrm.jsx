@@ -49,13 +49,19 @@ var SCRM = {
     Stack: React.createClass({
         getInitialState: function () {
             return {
-                  stack: this.props.stack
+                  stack: this.props.stack,
+                  items: []
             };
         },
 
         render: function() {
             var className = 'stack ' + this.state.stack.network;
             var stackType = this.state.stack.type || '';
+
+            var items = this.state.items.map(function (item, index) {
+                return <SCRM.Item item={item} />
+            }.bind(this));
+
             return (
                 <div className={className}>
                     <div className='header'>
@@ -63,16 +69,24 @@ var SCRM = {
                         <div className='title'>{stackType}</div>
                     </div>
                     <div className='items'>
-                        <div className='item'>
-                            <div className='avatar' />
-                            <div className='username'>User Name</div>
-                            <div className='timestamp'>8d</div>
-                            <p className='message'>
-                                Gastropub Williamsburg leggings narwhal, normcore vinyl wolf Brooklyn semiotics cronut Helvetica. 8-bit letterpress brunch PBR asymmetrical, High Life narwhal irony small batch chambray vegan.
-                            </p>
-                            <div className='attachment' />
-                        </div>
+                        {items}
                     </div>
+                </div>
+            );
+        }
+    }),
+
+    Item: React.createClass({
+        render: function() {
+            return (
+                <div className='item'>
+                    <div className='avatar' />
+                    <div className='username'>User Name</div>
+                    <div className='timestamp'>8d</div>
+                    <p className='message'>
+                        Gastropub Williamsburg leggings narwhal, normcore vinyl wolf Brooklyn semiotics cronut Helvetica. 8-bit letterpress brunch PBR asymmetrical, High Life narwhal irony small batch chambray vegan.
+                    </p>
+                    <div className='attachment' />
                 </div>
             );
         }
