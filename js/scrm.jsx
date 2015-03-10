@@ -15,7 +15,10 @@ var SCRM = {
         getInitialState: function () {
             return {
                 stacks: [
-                    {network:'facebook', type:'timeline', id:'1'}
+                    {network:'facebook', type:'timeline', id:'1'},
+                    {network:'twitter', type:'tweets', id:'2'},
+                    {network:'gplus', type:'my posts', id:'3'},
+                    {network:'instagram', type:'search', id:'4'}
                 ]          
             };
         },
@@ -44,12 +47,20 @@ var SCRM = {
     }),
 
     Stack: React.createClass({
+        getInitialState: function () {
+            return {
+                  stack: this.props.stack
+            };
+        },
+
         render: function() {
+            var className = 'stack ' + this.state.stack.network;
+            var stackType = this.state.stack.type || '';
             return (
-                <div className='stack'>
+                <div className={className}>
                     <div className='header'>
                         <div className='icon' />
-                        <div className='title'>Default</div>
+                        <div className='title'>{stackType}</div>
                     </div>
                     <div className='items'>
                         <div className='item'>

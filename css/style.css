@@ -28,11 +28,21 @@ body {
     background-color:rgb(48, 48, 48);
 }
 
+#stacks .stack.facebook .header  { background-color:#5e7491; }
+#stacks .stack.twitter .header   { background-color:#43b3df; }
+#stacks .stack.gplus .header     { background-color:rgb(64, 64, 64); }
+#stacks .stack.instagram .header { background-color:rgb(70, 127, 171); }
+
 #stacks .stack .header .icon {
     top:10px;
     left:10px;
     background-position: -440px -40px;
 }
+
+#stacks .stack.facebook .header .icon  { background-position: -0px -640px }
+#stacks .stack.twitter .header .icon   { background-position: -40px -640px }
+#stacks .stack.gplus .header .icon     { background-position: -240px -640px }
+#stacks .stack.instagram .header .icon { background-position: -520px -880px }
 
 #stacks .stack .header .title {
     color:#ffffff;
