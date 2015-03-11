@@ -181,8 +181,69 @@ var SCRM = {
                     <div className='timestamp'>{this.state.timestamp}</div>
                     <p className='message'>{this.state.message}</p>
                     {this.state.attachment ? <div className='attachment'>{this.state.attachment}</div> : false}
+                    <SCRM.ItemActions item={this.props.item} />
                 </div>
             );
+        }
+    }),
+
+    ItemActions: React.createClass({
+        getActionList: function(network, type) {
+            switch(network) {
+                case 'facebook':
+                    return <SCRM.FacebookPostItemActions item={this.props.item} />;
+                case 'twitter':
+                    return <SCRM.TwitterTweetItemActions item={this.props.item} />;
+            }
+        },
+
+        render: function() {
+            var actions = this.getActionList(this.props.item.network, this.props.item.type);
+            return actions;
+        }
+    }),
+
+    FacebookPostItemActions: React.createClass({
+        getInitialState: function () {
+            return {
+                item:this.props.item  
+            };
+        },
+
+        replyAction: function() {
+            alert('reply action for ' + this.props.item.id);
+        },
+
+        render: function() {
+            return (
+                <ul className='actions'>
+                    <li onClick={this.replyAction}>Reply</li>
+                    <li>Tag</li>
+                    <li>Assign Task</li>
+                </ul>
+            )
+        }
+    }),
+
+    TwitterTweetItemActions: React.createClass({
+        getInitialState: function () {
+            return {
+                item:this.props.item  
+            };
+        },
+
+        replyAction: function() {
+            alert('reply action for ' + this.props.item.id);
+        },
+
+        render: function() {
+            return (
+                <ul className='actions'>
+                    <li onClick={this.replyAction}>Reply</li>
+                    <li>Tag</li>
+                    <li>Assign Task</li>
+                </ul>
+            )
         }
     })
 };

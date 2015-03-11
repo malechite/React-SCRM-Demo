@@ -93,6 +93,18 @@ body {
     padding: 4px 21px 0px 55px;
 }
 
+#stacks .stack .items .item .actions {
+    font-size:12px;
+    padding-left:50px;
+}
+
+#stacks .stack .items .item .actions li {
+    display:inline-block;
+    padding:5px;
+    color:#000077;
+    cursor:pointer;
+}
+
 a.add-item {
     display:block;
     text-align: center;
